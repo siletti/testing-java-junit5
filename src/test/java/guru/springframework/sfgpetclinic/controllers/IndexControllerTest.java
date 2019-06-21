@@ -1,6 +1,7 @@
 package guru.springframework.sfgpetclinic.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +23,9 @@ class IndexControllerTest {
     }
 
     @Test
+    @DisplayName("Demo test assertThrows")
     void oupsHandler() {
-        assertTrue("notimplemented".equals(indexController.oupsHandler()));
+        assertThrows(ValueNotException.class, indexController::oopsHandler);
+        //assertTrue("notimplemented".equals(indexController.oopsHandler()));
     }
 }
