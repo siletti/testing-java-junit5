@@ -9,6 +9,7 @@ import org.junit.jupiter.api.condition.*;
 import java.time.Duration;
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -26,6 +27,7 @@ class IndexControllerTest {
         assertEquals("index", indexController.index());
         assertEquals("index", indexController.index(), "ERROR!!!!!!!!!!!!!!!!");
         //assertEquals("indexz", indexController.index(), () ->"ERROR " + "!!!!!!!$$$$!!");
+        assertThat(indexController.index()).isEqualToIgnoringCase("INdex");
     }
 
     @Test
@@ -89,6 +91,7 @@ class IndexControllerTest {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             System.out.println("ENV.Var.= " + entry.getKey() + " ==> " + entry.getValue());
         }
+        assertThat(map).containsValues("alber");
     }
 
     @EnabledIfEnvironmentVariable(named = "USERNAME", matches = "alber")
