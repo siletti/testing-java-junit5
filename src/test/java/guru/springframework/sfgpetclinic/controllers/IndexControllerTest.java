@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class IndexControllerTest {
 
@@ -54,4 +55,14 @@ class IndexControllerTest {
                 }
         );
     }
+
+    @Test
+    void testAssumption() {
+        assumeTrue("SILETTI".equals(System.getenv("SOME_ENV")));
+    }
+    @Test
+    void testAssumptionIsTrue() {
+        assumeTrue("SILETTI".equals("SILETTI"));
+    }
+
 }
