@@ -36,5 +36,8 @@ class PersonTest implements ModelTests {
                 " repeatedTest = [" + repetitionInfo.getCurrentRepetition() + "]");
     }
 
-
+    @RepeatedTest(value = 5, name = "{displayName} :: repetition {currentRepetition} of {totalRepetitions}")
+    @DisplayName("LECTURE68 TEST!")
+    void lecture68() {
+    }
 }
