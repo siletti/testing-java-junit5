@@ -31,7 +31,8 @@ class OwnerTest implements ModelTests {
         assertThat(owner.getCity(), is("Key West"));
     }
 
-    @ParameterizedTest
+    @DisplayName("MyDisplayName description")
+    @ParameterizedTest(name = " {displayName} [{index}] {arguments}")
     @ValueSource(strings = {"one", "two", "three"})
     void ParamsValueTest(String value) {
         System.out.println("value = [" + value + "]");
