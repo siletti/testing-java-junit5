@@ -1,40 +1,18 @@
 package guru.springframework.sfgpetclinic.model;
 
-import guru.springframework.sfgpetclinic.ModelTests;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.EnumSource;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.*;
 
-class OwnerTest implements ModelTests {
-    @Test
-    @DisplayName("This is a @DisplayName!!!!!!!!...")
-    void dependentAssertions() {
+class OwnerTest {
 
-        Owner owner = new Owner(1l, "Albert", "Silly");
-        owner.setCity("Key West");
-        owner.setTelephone("123456789");
-
-        assertAll(" Test on blabla...",
-                () -> assertAll("Person Properties",
-                        () -> assertEquals("Albert", owner.getFirstName(), "First Name Error...."),
-                        () -> assertEquals("Silly", owner.getLastName())),
-                () -> assertAll("Owner Properties",
-                        () -> assertEquals("Key West", owner.getCity(), "City Error...."),
-                        () -> assertEquals("123456789", owner.getTelephone())
-                ));
-
-        assertThat(owner.getCity(), is("Key West"));
-    }
-
-    @DisplayName("MyDisplayName description")
-    @ParameterizedTest(name = " {displayName} [{index}] {arguments}")
-    @ValueSource(strings = {"one", "two", "three"})
-    void ParamsValueTest(String value) {
-        System.out.println("value = [" + value + "]");
+    @DisplayName("Enum Source Test")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @EnumSource(OwnerType.class)
+    void enumTest(OwnerType ownerType) {
+        System.out.println(ownerType);
     }
 }
+
