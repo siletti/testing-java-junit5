@@ -89,7 +89,7 @@ class IndexControllerTest implements ControllerTests {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             System.out.println("ENV.Var.= " + entry.getKey() + " ==> " + entry.getValue());
         }
-        assertThat(map).containsValues("C:\\Windows");
+        assertThat(map).containsValues("siletti");
     }
 
     @EnabledIfEnvironmentVariable(named = "USERNAME", matches = "alber")
